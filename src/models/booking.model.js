@@ -31,7 +31,6 @@ const bookingSchema = new mongoose.Schema(
       status: {
         type: String,
         required: true,
-        trim: true,
       },
       gender: {
         type: Number,
