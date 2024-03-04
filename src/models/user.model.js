@@ -17,20 +17,30 @@ const userShema = new mongoose.Schema(
       trim: true,
       unique: true,
     },
-    password: {
+    phone_number: {
       type: String,
       required: true,
+      trim: true,
+      unique: true,
     },
-    reset: {
-      code: {
-        type: String,
-        default: null,
-      },
-      time: {
-        type: String,
-        default: null,
-      },
+    gender: {
+      type: Number,
+      required: true,
     },
+    log: [
+      {
+        _id: {
+          type: mongoose.SchemaTypes.ObjectId,
+          ref: "branches",
+        },
+        context: {
+          type: String,
+        },
+        point: {
+          type: Number,
+        },
+      },
+    ],
   },
   { collection: "users", timestamps: true }
 );
