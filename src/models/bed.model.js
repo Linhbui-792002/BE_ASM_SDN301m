@@ -1,4 +1,7 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
+
+const DOCUMENT_NAME = "Bed";
+const COLLECTION_NAME = "Beds";
 
 const bedSchema = new mongoose.Schema(
   {
@@ -10,13 +13,13 @@ const bedSchema = new mongoose.Schema(
     room: {
       _id: {
         type: mongoose.Types.ObjectId,
-        ref: 'room',
+        ref: "room",
       },
       status: {
         type: String,
         required: true,
         trim: true,
-      }
+      },
     },
     price: {
       type: Number,
@@ -36,9 +39,9 @@ const bedSchema = new mongoose.Schema(
       trim: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const bedModel = mongoose.model('bed', bedSchema);
+const bedModel = mongoose.model(DOCUMENT_NAME, bedSchema);
 
 module.exports = bedModel;

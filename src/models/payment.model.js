@@ -1,10 +1,13 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
+const DOCUMENT_NAME = "Payment";
+const COLLECTION_NAME = "Payments";
 
 const paymentSchema = new mongoose.Schema(
   {
     receipt: {
       type: mongoose.SchemaTypes.ObjectId,
-      ref: "receipt",
+      ref: "Receipts",
     },
     amount: {
       type: Number,
@@ -21,9 +24,9 @@ const paymentSchema = new mongoose.Schema(
       trim: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const paymentModel = mongoose.model("payment", paymentSchema);
+const paymentModel = mongoose.model(DOCUMENT_NAME, paymentSchema);
 
 module.exports = paymentModel;

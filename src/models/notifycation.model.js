@@ -1,4 +1,8 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
+const DOCUMENT_NAME = "Notifycation";
+const COLLECTION_NAME = "Notifycations";
+
 const notifycationSchema = new mongoose.Schema(
   {
     title: {
@@ -18,8 +22,8 @@ const notifycationSchema = new mongoose.Schema(
     },
     branch: {
       _id: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "users",
+        type: mongoose.Types.ObjectId,
+        ref: "Branches",
       },
       branch_name: {
         type: String,
@@ -27,8 +31,8 @@ const notifycationSchema = new mongoose.Schema(
     },
     createdBy: {
       _id: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "users",
+        type: mongoose.Types.ObjectId,
+        ref: "Users",
       },
       name: {
         type: String,
@@ -36,17 +40,17 @@ const notifycationSchema = new mongoose.Schema(
     },
     updatedBy: {
       _id: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "users",
+        type: mongoose.Types.ObjectId,
+        ref: "Users",
       },
       name: {
         type: String,
       },
     },
   },
-  { timestamps: true }
+  { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const notifycationModel = mongoose.model("notifycations", notifycationSchema);
+const notifycationModel = mongoose.model(DOCUMENT_NAME, notifycationSchema);
 
 module.exports = notifycationModel;

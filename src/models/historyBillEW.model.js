@@ -1,11 +1,14 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
+const DOCUMENT_NAME = "HistoryBillEW";
+const COLLECTION_NAME = "HistoryBillEWs";
 
 const historyBillEWSchema = new mongoose.Schema(
   {
     room: {
       _id: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "room",
+        type: mongoose.Types.ObjectId,
+        ref: "Rooms",
       },
       name: {
         type: String,
@@ -37,20 +40,20 @@ const historyBillEWSchema = new mongoose.Schema(
     },
     electric_price: {
       type: Number,
-       required: true,
+      required: true,
     },
     water_price: {
       type: Number,
-       required: true,
+      required: true,
     },
     createdBy: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "users",
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "Users",
     },
   },
-  { timestamps: true }
+  { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const historyBillEWModel = mongoose.model("historyBillEW", historyBillEWSchema);
+const historyBillEWModel = mongoose.model(DOCUMENT_NAME, historyBillEWSchema);
 
 module.exports = historyBillEWModel;
