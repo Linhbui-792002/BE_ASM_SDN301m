@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "BookingTime";
-const COLLECTION_NAME = "BookingTimes";
+const DOCUMENT_NAME = 'BookingTime';
+const COLLECTION_NAME = 'BookingTimes';
 
 const bookingTimeSchema = new mongoose.Schema(
   {
@@ -37,4 +37,4 @@ const bookingTimeSchema = new mongoose.Schema(
 
 const bookingTimeModel = mongoose.model(DOCUMENT_NAME, bookingTimeSchema);
 
-module.exports = bookingTimeModel;
+export default bookingTimeModel;

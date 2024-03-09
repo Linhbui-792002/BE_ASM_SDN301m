@@ -1,23 +1,23 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "Booking";
-const COLLECTION_NAME = "Bookings";
+const DOCUMENT_NAME = 'Booking';
+const COLLECTION_NAME = 'Bookings';
 
 const bookingSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.SchemaTypes.ObjectId,
-      ref: "users",
+      ref: 'users',
     },
     bed: {
       type: mongoose.SchemaTypes.ObjectId,
-      ref: "bed",
+      ref: 'bed',
     },
     status: {
       type: String,
       required: true,
-      enum: ["Pending", "Success", "Reject"],
-      defalt: "Pending",
+      enum: ['Pending', 'Success', 'Reject'],
+      defalt: 'Pending',
     },
   },
   { timestamps: true, collection: COLLECTION_NAME }
@@ -25,4 +25,4 @@ const bookingSchema = new mongoose.Schema(
 
 const bookingModel = mongoose.model(DOCUMENT_NAME, bookingSchema);
 
-module.exports = bookingModel;
+export default bookingModel;

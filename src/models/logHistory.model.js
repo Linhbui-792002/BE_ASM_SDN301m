@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "LogHistoriy";
-const COLLECTION_NAME = "LogHistories";
+const DOCUMENT_NAME = 'LogHistoriy';
+const COLLECTION_NAME = 'LogHistories';
 
 const logHistorySchema = new mongoose.Schema(
   {
@@ -20,4 +20,4 @@ const logHistorySchema = new mongoose.Schema(
 
 const logHistoryModel = mongoose.model(DOCUMENT_NAME, logHistorySchema);
 
-module.exports = logHistoryModel;
+export default logHistoryModel;

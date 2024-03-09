@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "Dormitory";
-const COLLECTION_NAME = "Dormitories";
+const DOCUMENT_NAME = 'Dormitory';
+const COLLECTION_NAME = 'Dormitories';
 
 const domSchema = new mongoose.Schema(
   {
@@ -13,7 +13,7 @@ const domSchema = new mongoose.Schema(
     branch: {
       _id: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Branches",
+        ref: 'Branches',
       },
       name: {
         type: String,
@@ -21,7 +21,7 @@ const domSchema = new mongoose.Schema(
     },
     manager: {
       type: mongoose.SchemaTypes.ObjectId,
-      ref: "Users",
+      ref: 'Users',
     },
     number_floor: {
       type: Number,
@@ -33,4 +33,4 @@ const domSchema = new mongoose.Schema(
 
 const domModel = mongoose.model(DOCUMENT_NAME, domSchema);
 
-module.exports = domModel;
+export default domModel;

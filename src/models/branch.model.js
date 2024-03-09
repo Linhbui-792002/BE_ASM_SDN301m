@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "Branch";
-const COLLECTION_NAME = "Branchs";
+const DOCUMENT_NAME = 'Branch';
+const COLLECTION_NAME = 'Branchs';
 
 const branchSchema = new mongoose.Schema(
   {
@@ -21,4 +21,4 @@ const branchSchema = new mongoose.Schema(
 
 const branchModel = mongoose.model(DOCUMENT_NAME, branchSchema);
 
-module.exports = branchModel;
+export default branchModel;

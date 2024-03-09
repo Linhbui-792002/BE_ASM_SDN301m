@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "Room";
-const COLLECTION_NAME = "Rooms";
+const DOCUMENT_NAME = 'Room';
+const COLLECTION_NAME = 'Rooms';
 
 const roomSchema = new mongoose.Schema(
   {
@@ -16,15 +16,15 @@ const roomSchema = new mongoose.Schema(
     },
     room_type: {
       type: mongoose.SchemaTypes.ObjectId,
-      ref: "RoomTypes",
+      ref: 'RoomTypes',
     },
     dormitory: {
       type: mongoose.SchemaTypes.ObjectId,
-      ref: "Dormitories",
+      ref: 'Dormitories',
     },
     history_electric_warter: {
       type: mongoose.SchemaTypes.ObjectId,
-      ref: "Dormitories",
+      ref: 'Dormitories',
     },
     number_water_used: {
       type: Number,
@@ -70,4 +70,4 @@ const roomSchema = new mongoose.Schema(
 
 const roomModel = mongoose.model(DOCUMENT_NAME, roomSchema);
 
-module.exports = roomModel;
+export default roomModel;
