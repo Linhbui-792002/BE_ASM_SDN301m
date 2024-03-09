@@ -1,4 +1,9 @@
-const mongoose = require("mongoose");
+'use strict';
+
+import mongoose, { ObjectId } from 'mongoose';
+
+const DOCUMENT_NAME = 'Account';
+const COLLECTION_NAME = 'Accounts';
 
 const accountSchema = new mongoose.Schema(
   {
@@ -14,23 +19,21 @@ const accountSchema = new mongoose.Schema(
     },
     branch: {
       _id: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "branch",
+        type: ObjectId,
+        ref: 'Branchs',
       },
       name: {
         type: String,
       },
     },
     user: {
-      _id: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "user",
-      },
+      type: ObjectId,
+      ref: 'Users',
     },
     role: {
       _id: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "branch",
+        type: ObjectId,
+        ref: 'Roles',
       },
       name: {
         type: String,
@@ -38,11 +41,28 @@ const accountSchema = new mongoose.Schema(
     },
     is_active: {
       type: Boolean,
+      enum: [true, false],
+      default: false,
+    },
+    created_by: {
+      _id: {
+        type: ObjectId,
+        ref: 'Users',
+      },
+    },
+    updated_by: {
+      _id: {
+        type: ObjectId,
+        ref: 'Users',
+      },
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    collection: COLLECTION_NAME,
+  }
 );
 
-const accountModel = mongoose.model("accounts", accountSchema);
+const AccountModel = mongoose.model(DOCUMENT_NAME, accountSchema);
 
-module.exports = accountModel;
+export default AccountModel;

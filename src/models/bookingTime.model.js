@@ -15,25 +15,18 @@ const bookingTimeSchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
-    account: {
-      _id: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "users",
-      },
-      user: {
+    user: {
         _id: {
           type: mongoose.SchemaTypes.ObjectId,
         },
-        full_name: {
+        first_name: {
           type: String,
           trim: true,
         },
-      },
-    },
-    status: {
-      type: String,
-      required: true,
-      trim: true,
+        last_name: {
+          type: String,
+          trim: true,
+        },
     },
   },
   { timestamps: true }

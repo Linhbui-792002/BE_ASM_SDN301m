@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const roomSchema = new mongoose.Schema(
   {
@@ -11,13 +11,33 @@ const roomSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    Bed_num: {
+    room_type: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'roomTypeSchema',
+    },
+    dormitory: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'Dormitories',
+    },
+    history_electric_warter: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'Dormitories',
+    },
+    number_water_used: {
       type: Number,
       required: true,
     },
-    DOM: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: "DOM",
+    number_electronic_used: {
+      type: Number,
+      required: true,
+    },
+    number_water_real_used: {
+      type: Number,
+      required: true,
+    },
+    number_electronic_real_used: {
+      type: Number,
+      required: true,
     },
     furniture: [
       {
@@ -30,34 +50,21 @@ const roomSchema = new mongoose.Schema(
           required: true,
           trim: true,
         },
-        code: {
-          type: String,
-          required: true,
-          trim: true,
-        },
         quantity: {
           type: Number,
           required: true,
         },
       },
     ],
-    number_water: {
-      type: Number,
-      required: true,
-    },
-    number_electronic: {
-      type: Number,
-      required: true,
-    },
     status: {
-      type: String,
+      type: Boolean,
       required: true,
-      trim: true,
+      default: false,
     },
   },
   { timestamps: true }
 );
 
-const roomModel = mongoose.model("room", roomSchema);
+const roomModel = mongoose.model('room', roomSchema);
 
 module.exports = roomModel;

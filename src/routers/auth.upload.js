@@ -1,8 +1,10 @@
-const router = require("express").Router();
-const multer = require("multer");
-const upload = require("../middlewares/lib/upload");
-const APIError = require("../utils/errors");
-const Response = require("../utils/response");
+import express from "express"
+import multer from "multer";
+import upload from "../middlewares/lib/upload";
+import APIError from "../utils/errors";
+import Response from "../utils/response";
+
+const router = express.Router();
 
 router.post("/upload", (req, res) => {
   upload(req, res, (err) => {

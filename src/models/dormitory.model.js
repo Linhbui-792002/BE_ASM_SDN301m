@@ -17,25 +17,8 @@ const domSchema = new mongoose.Schema(
       },
     },
     manager: {
-      _id: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "branch",
-      },
-      full_name: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-      email: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-      phone: {
-        type: String,
-        required: true,
-        trim: true,
-      },
+        ref: "Users",
     },
     number_floor: {
       type: Number,

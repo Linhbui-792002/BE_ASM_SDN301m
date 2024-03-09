@@ -1,12 +1,16 @@
-const mongoose = require("mongoose");
-const userShema = new mongoose.Schema(
+import mongoose from 'mongoose';
+
+const DOCUMENT_NAME = 'User';
+const COLLECTION_NAME = 'Users';
+
+const userSchema = new mongoose.Schema(
   {
-    firstName: {
+    first_name: {
       type: String,
       required: true,
       trim: true,
     },
-    lastName: {
+    last_name: {
       type: String,
       required: true,
       trim: true,
@@ -23,15 +27,21 @@ const userShema = new mongoose.Schema(
       trim: true,
       unique: true,
     },
+    image: {
+      type: String,
+     trim: true,
+    },
     gender: {
       type: Number,
       required: true,
+      enum: [1, 0],
+      default: 1
     },
     log: [
       {
         _id: {
-          type: mongoose.SchemaTypes.ObjectId,
-          ref: "branches",
+          type: mongoose.Types.ObjectId,
+          ref: 'log',
         },
         context: {
           type: String,
@@ -42,9 +52,9 @@ const userShema = new mongoose.Schema(
       },
     ],
   },
-  { collection: "users", timestamps: true }
+  { collection: COLLECTION_NAME, timestamps: true }
 );
 
-const userModel = mongoose.model("users", userShema);
+const UserModel = mongoose.model(DOCUMENT_NAME, userSchema);
 
-module.exports = userModel;
+export default UserModel;

@@ -27,22 +27,25 @@ const historyBillEWSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    water_used: {
+    number_water_used: {
       type: Number,
       required: true,
     },
-    electric_used: {
+    number_electronic_used: {
       type: Number,
       required: true,
+    },
+    electric_price: {
+      type: Number,
+       required: true,
+    },
+    water_price: {
+      type: Number,
+       required: true,
     },
     createdBy: {
-      _id: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "users",
-      },
-      name: {
-        type: String,
-      },
     },
   },
   { timestamps: true }

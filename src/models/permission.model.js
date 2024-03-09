@@ -1,23 +1,12 @@
 const mongoose = require("mongoose");
 const permissionSchema = new mongoose.Schema(
   {
-    name: {
+    permission: {
       type: String,
-      required: true,
-      trim: true,
-    },
-    user: {
-      _id: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "users",
-      },
-      full_name: {
-        type: String,
-      },
-      point: {
-        type: Number,
-      },
-    },
+      requied: true,
+      enum: ['0000', '1111', '2222'],
+      default:'0000',
+    }
   },
   { timestamps: true }
 );

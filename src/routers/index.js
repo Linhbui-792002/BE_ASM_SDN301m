@@ -1,6 +1,8 @@
-const router = require("express").Router();
-const authRouter = require("./auth.router");
-const upload = require("./auth.upload");
+import express from "express"
+import authRouter from "./auth.router"
+import upload from "./auth.upload"
+
+const router = express.Router()
 
 router.use(authRouter);
 router.use(upload);
