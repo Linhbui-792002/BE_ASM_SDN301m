@@ -1,4 +1,8 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
+const DOCUMENT_NAME = "Role";
+const COLLECTION_NAME = "Roles";
+
 const roleSchema = new mongoose.Schema(
   {
     name: {
@@ -9,13 +13,13 @@ const roleSchema = new mongoose.Schema(
     permission: [
       {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "permissions",
-      }
+        ref: "Permissions",
+      },
     ],
   },
-  { timestamps: true }
+  { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const roleModel = mongoose.model("roles", roleSchema);
+const roleModel = mongoose.model(DOCUMENT_NAME, roleSchema);
 
 module.exports = roleModel;

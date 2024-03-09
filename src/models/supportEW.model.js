@@ -1,4 +1,7 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
+const DOCUMENT_NAME = "SupportEW";
+const COLLECTION_NAME = "SupportEWs";
 
 const supportSchema = new mongoose.Schema(
   {
@@ -13,7 +16,7 @@ const supportSchema = new mongoose.Schema(
     createdBy: {
       _id: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "users",
+        ref: "Users",
       },
       name: {
         type: String,
@@ -22,16 +25,16 @@ const supportSchema = new mongoose.Schema(
     updatedBy: {
       _id: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "users",
+        ref: "Users",
       },
       name: {
         type: String,
       },
     },
   },
-  { timestamps: true }
+  { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const supportModel = mongoose.model("Support", supportSchema);
+const supportModel = mongoose.model(DOCUMENT_NAME, supportSchema);
 
 module.exports = supportModel;

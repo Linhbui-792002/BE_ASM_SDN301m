@@ -1,4 +1,7 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
+const DOCUMENT_NAME = "BookingTime";
+const COLLECTION_NAME = "BookingTimes";
 
 const bookingTimeSchema = new mongoose.Schema(
   {
@@ -16,22 +19,22 @@ const bookingTimeSchema = new mongoose.Schema(
       required: true,
     },
     user: {
-        _id: {
-          type: mongoose.SchemaTypes.ObjectId,
-        },
-        first_name: {
-          type: String,
-          trim: true,
-        },
-        last_name: {
-          type: String,
-          trim: true,
-        },
+      _id: {
+        type: mongoose.SchemaTypes.ObjectId,
+      },
+      first_name: {
+        type: String,
+        trim: true,
+      },
+      last_name: {
+        type: String,
+        trim: true,
+      },
     },
   },
-  { timestamps: true }
+  { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const bookingTimeModel = mongoose.model("bookingTime", bookingTimeSchema);
+const bookingTimeModel = mongoose.model(DOCUMENT_NAME, bookingTimeSchema);
 
 module.exports = bookingTimeModel;

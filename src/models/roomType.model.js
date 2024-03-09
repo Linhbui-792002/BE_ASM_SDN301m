@@ -1,7 +1,10 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
+
+const DOCUMENT_NAME = "RoomType";
+const COLLECTION_NAME = "RoomTypes";
 
 const roomTypeSchema = new mongoose.Schema(
-    {
+  {
     name: {
       type: String,
       required: true,
@@ -12,17 +15,18 @@ const roomTypeSchema = new mongoose.Schema(
       required: true,
     },
     price: {
-        type: Number,
+      type: Number,
       required: true,
     },
+    //đoạn này tý nhờ anh Linh xem lại
     room_type: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "RoomType",
-    }
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "RoomType",
+    },
   },
   { timestamps: true }
 );
 
-const roomModel = mongoose.model('room', roomSchema);
+const roomModel = mongoose.model("room", roomSchema);
 
 module.exports = roomModel;

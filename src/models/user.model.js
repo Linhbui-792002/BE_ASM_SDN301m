@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const DOCUMENT_NAME = 'User';
-const COLLECTION_NAME = 'Users';
+const DOCUMENT_NAME = "User";
+const COLLECTION_NAME = "Users";
 
 const userSchema = new mongoose.Schema(
   {
@@ -29,19 +29,19 @@ const userSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-     trim: true,
+      trim: true,
     },
     gender: {
       type: Number,
       required: true,
       enum: [1, 0],
-      default: 1
+      default: 1,
     },
     log: [
       {
         _id: {
           type: mongoose.Types.ObjectId,
-          ref: 'log',
+          ref: "log",
         },
         context: {
           type: String,

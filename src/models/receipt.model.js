@@ -1,4 +1,7 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
+
+const DOCUMENT_NAME = "Receipt";
+const COLLECTION_NAME = "Receipts";
 
 const receiptSchema = new mongoose.Schema(
   {
@@ -14,7 +17,7 @@ const receiptSchema = new mongoose.Schema(
       },
       bed: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'booking',
+        ref: "booking",
         required: true,
       },
     },
@@ -25,13 +28,13 @@ const receiptSchema = new mongoose.Schema(
     status: {
       type: String,
       required: true,
-      enum: ['Pending', 'Success', 'Fail'],
-      default:'Pending'
+      enum: ["Pending", "Success", "Fail"],
+      default: "Pending",
     },
   },
-  { timestamps: true }
+  { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const receiptModel = mongoose.model('receipt', receiptSchema);
+const receiptModel = mongoose.model(DOCUMENT_NAME, receiptSchema);
 
 module.exports = receiptModel;

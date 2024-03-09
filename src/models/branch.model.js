@@ -1,4 +1,7 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
+const DOCUMENT_NAME = "Branch";
+const COLLECTION_NAME = "Branchs";
 
 const branchSchema = new mongoose.Schema(
   {
@@ -13,9 +16,9 @@ const branchSchema = new mongoose.Schema(
       trim: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const branchModel = mongoose.model("branches", branchSchema);
+const branchModel = mongoose.model(DOCUMENT_NAME, branchSchema);
 
 module.exports = branchModel;
