@@ -8,14 +8,9 @@ const roleSchema = new mongoose.Schema(
     },
     permission: [
       {
-        _id: {
-          type: mongoose.SchemaTypes.ObjectId,
-          ref: "permissions",
-        },
-        context: {
-          type: String,
-        },
-      },
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "permissions",
+      }
     ],
   },
   { timestamps: true }
