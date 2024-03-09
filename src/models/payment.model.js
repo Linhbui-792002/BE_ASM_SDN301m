@@ -1,13 +1,13 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "Payment";
-const COLLECTION_NAME = "Payments";
+const DOCUMENT_NAME = 'Payment';
+const COLLECTION_NAME = 'Payments';
 
 const paymentSchema = new mongoose.Schema(
   {
     receipt: {
       type: mongoose.SchemaTypes.ObjectId,
-      ref: "Receipts",
+      ref: 'Receipts',
     },
     amount: {
       type: Number,
@@ -29,4 +29,4 @@ const paymentSchema = new mongoose.Schema(
 
 const paymentModel = mongoose.model(DOCUMENT_NAME, paymentSchema);
 
-module.exports = paymentModel;
+export default paymentModel;

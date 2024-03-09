@@ -7,4 +7,4 @@ const router = express.Router()
 router.use(authRouter);
 router.use(upload);
 
-module.exports = router;
+export default router;

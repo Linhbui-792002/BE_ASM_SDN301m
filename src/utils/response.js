@@ -8,7 +8,7 @@ class Response {
     return res.status(200).json({
       success: true,
       data: this.data,
-      message: this.message ?? "Operation is successful",
+      message: this.message ?? 'Operation is successful',
     });
   }
 
@@ -16,7 +16,7 @@ class Response {
     return res.status(201).json({
       success: true,
       data: this.data,
-      message: this.message ?? "Registration successful",
+      message: this.message ?? 'Registration successful',
     });
   }
 
@@ -24,7 +24,7 @@ class Response {
     return res.status(500).json({
       success: false,
       data: this.data,
-      message: this.message ?? "Operation failed !",
+      message: this.message ?? 'Operation failed !',
     });
   }
 
@@ -32,7 +32,7 @@ class Response {
     return res.status(400).json({
       success: false,
       data: this.data,
-      message: this.message ?? "Operation failed !",
+      message: this.message ?? 'Operation failed !',
     });
   }
 
@@ -40,7 +40,7 @@ class Response {
     return res.status(401).json({
       success: false,
       data: this.data,
-      message: this.message ?? "Please login !",
+      message: this.message ?? 'Please login !',
     });
   }
 
@@ -48,7 +48,7 @@ class Response {
     return res.status(404).json({
       success: false,
       data: this.data,
-      message: this.message ?? "Operation failed !",
+      message: this.message ?? 'Operation failed !',
     });
   }
 
@@ -56,9 +56,9 @@ class Response {
     return res.status(429).json({
       success: false,
       data: this.data,
-      message: this.message ?? "Too many requests blocked !",
+      message: this.message ?? 'Too many requests blocked !',
     });
   }
 }
 
-module.exports = Response;
+export default Response;

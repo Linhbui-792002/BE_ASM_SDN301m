@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "SupportEW";
-const COLLECTION_NAME = "SupportEWs";
+const DOCUMENT_NAME = 'SupportEW';
+const COLLECTION_NAME = 'SupportEWs';
 
 const supportSchema = new mongoose.Schema(
   {
@@ -16,7 +16,7 @@ const supportSchema = new mongoose.Schema(
     createdBy: {
       _id: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Users",
+        ref: 'Users',
       },
       name: {
         type: String,
@@ -25,7 +25,7 @@ const supportSchema = new mongoose.Schema(
     updatedBy: {
       _id: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Users",
+        ref: 'Users',
       },
       name: {
         type: String,
@@ -37,4 +37,4 @@ const supportSchema = new mongoose.Schema(
 
 const supportModel = mongoose.model(DOCUMENT_NAME, supportSchema);
 
-module.exports = supportModel;
+export default supportModel;

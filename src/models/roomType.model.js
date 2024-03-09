@@ -18,10 +18,9 @@ const roomTypeSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    //đoạn này tý nhờ anh Linh xem lại
-    room_type: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: "RoomType",
+   support_ew: {
+      type: mongoose.Types.ObjectId,
+      ref: "SupportEWs",
     },
   },
   { timestamps: true }
@@ -29,4 +28,4 @@ const roomTypeSchema = new mongoose.Schema(
 
 const roomModel = mongoose.model("room", roomSchema);
 
-module.exports = roomModel;
+export default roomModel;

@@ -1,4 +1,4 @@
-const APIError = require("../utils/errors");
+const APIError = require('../utils/errors');
 
 const errorHandlerMiddleware = (err, req, res, next) => {
   if (err instanceof APIError) {
@@ -11,8 +11,8 @@ const errorHandlerMiddleware = (err, req, res, next) => {
 
   return res.status(500).json({
     success: false,
-    message: "API Error, Please check !",
+    message: 'API Error, Please check !',
   });
 };
 
-module.exports = errorHandlerMiddleware;
+export default errorHandlerMiddleware;

@@ -1,14 +1,14 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "historyBillEWDetail";
-const COLLECTION_NAME = "historyBillEWDetails";
+const DOCUMENT_NAME = 'historyBillEWDetail';
+const COLLECTION_NAME = 'historyBillEWDetails';
 
 const historyEWDetailSchema = new mongoose.Schema(
   {
     room: {
       _id: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Rooms",
+        ref: 'Rooms',
       },
       name: {
         type: String,
@@ -36,4 +36,4 @@ const historyEWDetailSchema = new mongoose.Schema(
 
 const historyBillEWModel = mongoose.model(DOCUMENT_NAME, historyBillEWSchema);
 
-module.exports = historyEWDetailSchema;
+export default historyEWDetailSchema;

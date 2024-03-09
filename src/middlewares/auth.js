@@ -86,7 +86,7 @@
 //   return userInfo;
 // };
 
-// module.exports = {
+// export default {
 //   createToken,
 //   checkToken,
 //   createTemporaryToken,

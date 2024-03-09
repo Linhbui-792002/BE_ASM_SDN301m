@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "Notifycation";
-const COLLECTION_NAME = "Notifycations";
+const DOCUMENT_NAME = 'Notifycation';
+const COLLECTION_NAME = 'Notifycations';
 
 const notifycationSchema = new mongoose.Schema(
   {
@@ -23,7 +23,7 @@ const notifycationSchema = new mongoose.Schema(
     branch: {
       _id: {
         type: mongoose.Types.ObjectId,
-        ref: "Branches",
+        ref: 'Branches',
       },
       branch_name: {
         type: String,
@@ -32,7 +32,7 @@ const notifycationSchema = new mongoose.Schema(
     createdBy: {
       _id: {
         type: mongoose.Types.ObjectId,
-        ref: "Users",
+        ref: 'Users',
       },
       name: {
         type: String,
@@ -41,7 +41,7 @@ const notifycationSchema = new mongoose.Schema(
     updatedBy: {
       _id: {
         type: mongoose.Types.ObjectId,
-        ref: "Users",
+        ref: 'Users',
       },
       name: {
         type: String,
@@ -53,4 +53,4 @@ const notifycationSchema = new mongoose.Schema(
 
 const notifycationModel = mongoose.model(DOCUMENT_NAME, notifycationSchema);
 
-module.exports = notifycationModel;
+export default notifycationModel;

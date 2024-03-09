@@ -1,14 +1,14 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "HistoryBillEW";
-const COLLECTION_NAME = "HistoryBillEWs";
+const DOCUMENT_NAME = 'HistoryBillEW';
+const COLLECTION_NAME = 'HistoryBillEWs';
 
 const historyBillEWSchema = new mongoose.Schema(
   {
     room: {
       _id: {
         type: mongoose.Types.ObjectId,
-        ref: "Rooms",
+        ref: 'Rooms',
       },
       name: {
         type: String,
@@ -48,7 +48,7 @@ const historyBillEWSchema = new mongoose.Schema(
     },
     createdBy: {
       type: mongoose.SchemaTypes.ObjectId,
-      ref: "Users",
+      ref: 'Users',
     },
   },
   { timestamps: true, collection: COLLECTION_NAME }
@@ -56,4 +56,4 @@ const historyBillEWSchema = new mongoose.Schema(
 
 const historyBillEWModel = mongoose.model(DOCUMENT_NAME, historyBillEWSchema);
 
-module.exports = historyBillEWModel;
+export default historyBillEWModel;

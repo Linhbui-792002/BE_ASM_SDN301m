@@ -65,4 +65,4 @@ const accountSchema = new mongoose.Schema(
 
 const AccountModel = mongoose.model(DOCUMENT_NAME, accountSchema);
 
-export default AccountModel;
+export default  AccountModel;

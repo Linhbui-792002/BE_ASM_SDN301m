@@ -45,4 +45,4 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage, fileFilter }).array('images');
 
-module.exports = upload;
+export default upload;

@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "Bed";
-const COLLECTION_NAME = "Beds";
+const DOCUMENT_NAME = 'Bed';
+const COLLECTION_NAME = 'Beds';
 
 const bedSchema = new mongoose.Schema(
   {
@@ -13,7 +13,7 @@ const bedSchema = new mongoose.Schema(
     room: {
       _id: {
         type: mongoose.Types.ObjectId,
-        ref: "room",
+        ref: 'room',
       },
       status: {
         type: String,
@@ -44,4 +44,4 @@ const bedSchema = new mongoose.Schema(
 
 const bedModel = mongoose.model(DOCUMENT_NAME, bedSchema);
 
-module.exports = bedModel;
+export default bedModel;

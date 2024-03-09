@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "Role";
-const COLLECTION_NAME = "Roles";
+const DOCUMENT_NAME = 'Role';
+const COLLECTION_NAME = 'Roles';
 
 const roleSchema = new mongoose.Schema(
   {
@@ -13,7 +13,7 @@ const roleSchema = new mongoose.Schema(
     permission: [
       {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Permissions",
+        ref: 'Permissions',
       },
     ],
   },
@@ -22,4 +22,4 @@ const roleSchema = new mongoose.Schema(
 
 const roleModel = mongoose.model(DOCUMENT_NAME, roleSchema);
 
-module.exports = roleModel;
+export default roleModel;
