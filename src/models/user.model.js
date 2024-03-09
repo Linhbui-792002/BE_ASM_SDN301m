@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema(
       {
         _id: {
           type: mongoose.Types.ObjectId,
-          ref: "log",
+          ref: "LogHistories",
         },
         context: {
           type: String,
