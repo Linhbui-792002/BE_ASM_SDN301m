@@ -7,7 +7,7 @@ const historyEWDetailSchema = new mongoose.Schema(
   {
     room: {
       _id: {
-        type: mongoose.SchemaTypes.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: "Rooms",
       },
       name: {

@@ -15,7 +15,7 @@ const supportSchema = new mongoose.Schema(
     },
     createdBy: {
       _id: {
-        type: mongoose.SchemaTypes.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: "Users",
       },
       name: {
@@ -24,7 +24,7 @@ const supportSchema = new mongoose.Schema(
     },
     updatedBy: {
       _id: {
-        type: mongoose.SchemaTypes.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: "Users",
       },
       name: {

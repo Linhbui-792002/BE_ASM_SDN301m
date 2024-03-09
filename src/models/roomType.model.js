@@ -20,8 +20,8 @@ const roomTypeSchema = new mongoose.Schema(
     },
     //đoạn này tý nhờ anh Linh xem lại
     room_type: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: "RoomType",
+      type: mongoose.Types.ObjectId,
+      ref: "RoomTypes",
     },
   },
   { timestamps: true }

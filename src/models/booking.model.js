@@ -6,12 +6,12 @@ const COLLECTION_NAME = "Bookings";
 const bookingSchema = new mongoose.Schema(
   {
     user: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: "users",
+      type: mongoose.Types.ObjectId,
+      ref: "Users",
     },
     bed: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: "bed",
+      type: mongoose.Types.ObjectId,
+      ref: "Beds",
     },
     status: {
       type: String,

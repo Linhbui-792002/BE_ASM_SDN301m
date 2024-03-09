@@ -12,7 +12,7 @@ const domSchema = new mongoose.Schema(
     },
     branch: {
       _id: {
-        type: mongoose.SchemaTypes.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: "Branches",
       },
       name: {
@@ -20,7 +20,7 @@ const domSchema = new mongoose.Schema(
       },
     },
     manager: {
-      type: mongoose.SchemaTypes.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: "Users",
     },
     number_floor: {

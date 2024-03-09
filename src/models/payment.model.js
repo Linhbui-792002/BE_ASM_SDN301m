@@ -6,7 +6,7 @@ const COLLECTION_NAME = "Payments";
 const paymentSchema = new mongoose.Schema(
   {
     receipt: {
-      type: mongoose.SchemaTypes.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: "Receipts",
     },
     amount: {
