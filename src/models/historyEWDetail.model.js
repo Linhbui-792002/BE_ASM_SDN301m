@@ -36,4 +36,4 @@ const historyEWDetailSchema = new mongoose.Schema(
 
 const HistoryBillEWModel = mongoose.model(DOCUMENT_NAME, historyBillEWSchema);
 
-module.exports = historyEWDetailSchema;
+module.exports = HistoryBillEWModel;
