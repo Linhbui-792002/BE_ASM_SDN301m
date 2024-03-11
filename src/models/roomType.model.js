@@ -18,10 +18,9 @@ const roomTypeSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    //đoạn này tý nhờ anh Linh xem lại
-    room_type: {
-      type: mongoose.Types.ObjectId,
-      ref: 'RoomTypes',
+     support_ew: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "SupportEWs",
     },
   },
   { timestamps: true }
