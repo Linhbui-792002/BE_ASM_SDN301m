@@ -1,7 +1,4 @@
-import mongoose from 'mongoose';
-
-const DOCUMENT_NAME = 'Dormitory';
-const COLLECTION_NAME = 'Dormitories';
+const mongoose = require('mongoose');
 
 const domSchema = new mongoose.Schema(
   {
@@ -13,7 +10,7 @@ const domSchema = new mongoose.Schema(
     branch: {
       _id: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'Branches',
+        ref: 'branch',
       },
       name: {
         type: String,

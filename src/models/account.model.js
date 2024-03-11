@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-import mongoose, { ObjectId } from 'mongoose';
+import mongoose, { ObjectId } from "mongoose";
 
-const DOCUMENT_NAME = 'Account';
-const COLLECTION_NAME = 'Accounts';
+const DOCUMENT_NAME = "Account";
+const COLLECTION_NAME = "Accounts";
 
 const accountSchema = new mongoose.Schema(
   {
@@ -20,7 +20,7 @@ const accountSchema = new mongoose.Schema(
     branch: {
       _id: {
         type: ObjectId,
-        ref: 'Branchs',
+        ref: "Branches",
       },
       name: {
         type: String,
@@ -28,12 +28,12 @@ const accountSchema = new mongoose.Schema(
     },
     user: {
       type: ObjectId,
-      ref: 'Users',
+      ref: "Users",
     },
     role: {
       _id: {
         type: ObjectId,
-        ref: 'Roles',
+        ref: "Roles",
       },
       name: {
         type: String,
@@ -47,13 +47,13 @@ const accountSchema = new mongoose.Schema(
     created_by: {
       _id: {
         type: ObjectId,
-        ref: 'Users',
+        ref: "Users",
       },
     },
     updated_by: {
       _id: {
         type: ObjectId,
-        ref: 'Users',
+        ref: "Users",
       },
     },
   },

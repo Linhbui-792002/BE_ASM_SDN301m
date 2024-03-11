@@ -47,7 +47,7 @@ const historyBillEWSchema = new mongoose.Schema(
       required: true,
     },
     createdBy: {
-      type: mongoose.SchemaTypes.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: 'Users',
     },
   },

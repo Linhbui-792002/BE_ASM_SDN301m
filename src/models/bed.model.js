@@ -13,7 +13,7 @@ const bedSchema = new mongoose.Schema(
     room: {
       _id: {
         type: mongoose.Types.ObjectId,
-        ref: 'room',
+        ref: 'Rooms',
       },
       status: {
         type: String,

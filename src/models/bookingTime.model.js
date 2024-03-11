@@ -20,7 +20,7 @@ const bookingTimeSchema = new mongoose.Schema(
     },
     user: {
       _id: {
-        type: mongoose.SchemaTypes.ObjectId,
+        type: mongoose.Types.ObjectId,
       },
       first_name: {
         type: String,

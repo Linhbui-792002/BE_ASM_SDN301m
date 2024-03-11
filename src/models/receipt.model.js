@@ -8,7 +8,7 @@ const receiptSchema = new mongoose.Schema(
     booking: {
       user: {
         _id: {
-          type: mongoose.SchemaTypes.ObjectId,
+          type: mongoose.Types.ObjectId,
         },
         full_name: {
           type: String,
@@ -16,7 +16,7 @@ const receiptSchema = new mongoose.Schema(
         },
       },
       bed: {
-        type: mongoose.SchemaTypes.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: 'booking',
         required: true,
       },

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const DOCUMENT_NAME = 'Branch';
-const COLLECTION_NAME = 'Branchs';
+const COLLECTION_NAME = 'Branches';
 
 const branchSchema = new mongoose.Schema(
   {

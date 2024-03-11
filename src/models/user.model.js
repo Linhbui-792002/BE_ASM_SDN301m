@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const DOCUMENT_NAME = 'User';
-const COLLECTION_NAME = 'Users';
+const DOCUMENT_NAME = "User";
+const COLLECTION_NAME = "Users";
 
 const userSchema = new mongoose.Schema(
   {
@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema(
       {
         _id: {
           type: mongoose.Types.ObjectId,
-          ref: 'log',
+          ref: "LogHistories",
         },
         context: {
           type: String,

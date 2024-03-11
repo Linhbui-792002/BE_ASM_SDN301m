@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = 'LogHistoriy';
+const DOCUMENT_NAME = 'LogHistory';
 const COLLECTION_NAME = 'LogHistories';
 
 const logHistorySchema = new mongoose.Schema(

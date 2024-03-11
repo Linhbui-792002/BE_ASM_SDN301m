@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = "RoomType";
-const COLLECTION_NAME = "RoomTypes";
+const DOCUMENT_NAME = 'RoomType';
+const COLLECTION_NAME = 'RoomTypes';
 
 const roomTypeSchema = new mongoose.Schema(
   {
@@ -18,14 +18,15 @@ const roomTypeSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-   support_ew: {
+    //đoạn này tý nhờ anh Linh xem lại
+    room_type: {
       type: mongoose.Types.ObjectId,
-      ref: "SupportEWs",
+      ref: 'RoomTypes',
     },
   },
   { timestamps: true }
 );
 
-const roomModel = mongoose.model("room", roomSchema);
+const roomModel = mongoose.model('room', roomSchema);
 
 export default roomModel;

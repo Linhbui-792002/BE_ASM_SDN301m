@@ -15,15 +15,15 @@ const roomSchema = new mongoose.Schema(
       required: true,
     },
     room_type: {
-      type: mongoose.SchemaTypes.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: 'RoomTypes',
     },
     dormitory: {
-      type: mongoose.SchemaTypes.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: 'Dormitories',
     },
     history_electric_warter: {
-      type: mongoose.SchemaTypes.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: 'Dormitories',
     },
     number_water_used: {
@@ -45,7 +45,7 @@ const roomSchema = new mongoose.Schema(
     furniture: [
       {
         _id: {
-          type: mongoose.SchemaTypes.ObjectId,
+          type: mongoose.Types.ObjectId,
           required: true,
         },
         name: {
