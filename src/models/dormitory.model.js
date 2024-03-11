@@ -33,4 +33,4 @@ const domSchema = new mongoose.Schema(
 
 const DomModel = mongoose.model(DOCUMENT_NAME, domSchema);
 
-module.exports = domModel;
+module.exports = DomModel;
