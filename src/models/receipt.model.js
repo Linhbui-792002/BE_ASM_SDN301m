@@ -17,7 +17,7 @@ const receiptSchema = new mongoose.Schema(
       },
       bed: {
         type: mongoose.Types.ObjectId,
-        ref: 'booking',
+        ref: 'Bookings',
         required: true,
       },
     },

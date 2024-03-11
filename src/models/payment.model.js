@@ -6,7 +6,7 @@ const COLLECTION_NAME = 'Payments';
 const paymentSchema = new mongoose.Schema(
   {
     receipt: {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.SchemaTypes.ObjectId,
       ref: 'Receipts',
     },
     amount: {
@@ -29,4 +29,4 @@ const paymentSchema = new mongoose.Schema(
 
 const PaymentModel = mongoose.model(DOCUMENT_NAME, paymentSchema);
 
-export default PaymentModel;
+module.exports = paymentModel;

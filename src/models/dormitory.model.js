@@ -1,4 +1,7 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
+const DOCUMENT_NAME = 'Dormitory';
+const COLLECTION_NAME = 'Dormitories';
 
 const domSchema = new mongoose.Schema(
   {
@@ -10,7 +13,7 @@ const domSchema = new mongoose.Schema(
     branch: {
       _id: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'branch',
+        ref: 'Branches',
       },
       name: {
         type: String,
@@ -30,4 +33,4 @@ const domSchema = new mongoose.Schema(
 
 const DomModel = mongoose.model(DOCUMENT_NAME, domSchema);
 
-export default DomModel;
+module.exports = domModel;

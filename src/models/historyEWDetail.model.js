@@ -7,7 +7,7 @@ const historyEWDetailSchema = new mongoose.Schema(
   {
     room: {
       _id: {
-        type: mongoose.Types.ObjectId,
+        type: mongoose.SchemaTypes.ObjectId,
         ref: 'Rooms',
       },
       name: {
@@ -36,4 +36,4 @@ const historyEWDetailSchema = new mongoose.Schema(
 
 const HistoryBillEWModel = mongoose.model(DOCUMENT_NAME, historyBillEWSchema);
 
-export default HistoryEWDetailSchema;
+module.exports = historyEWDetailSchema;

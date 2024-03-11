@@ -18,9 +18,9 @@ const roomTypeSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-     support_ew: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: "SupportEWs",
+    support_ew: {
+      type: mongoose.Types.ObjectId,
+      ref: 'SupportEWs',
     },
   },
   { timestamps: true }
