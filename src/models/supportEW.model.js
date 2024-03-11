@@ -35,6 +35,6 @@ const supportSchema = new mongoose.Schema(
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const supportModel = mongoose.model(DOCUMENT_NAME, supportSchema);
+const SupportEWModel = mongoose.model(DOCUMENT_NAME, supportSchema);
 
-export default supportModel;
+export default SupportEWModel;

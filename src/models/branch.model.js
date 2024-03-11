@@ -19,6 +19,6 @@ const branchSchema = new mongoose.Schema(
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const branchModel = mongoose.model(DOCUMENT_NAME, branchSchema);
+const BranchModel = mongoose.model(DOCUMENT_NAME, branchSchema);
 
-export default branchModel;
+export default BranchModel;

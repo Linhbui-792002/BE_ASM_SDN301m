@@ -18,6 +18,6 @@ const logHistorySchema = new mongoose.Schema(
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const logHistoryModel = mongoose.model(DOCUMENT_NAME, logHistorySchema);
+const LogHistoryModel = mongoose.model(DOCUMENT_NAME, logHistorySchema);
 
-export default logHistoryModel;
+export default LogHistoryModel;

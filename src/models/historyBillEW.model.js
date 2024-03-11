@@ -54,6 +54,6 @@ const historyBillEWSchema = new mongoose.Schema(
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const historyBillEWModel = mongoose.model(DOCUMENT_NAME, historyBillEWSchema);
+const HistoryBillEWModel = mongoose.model(DOCUMENT_NAME, historyBillEWSchema);
 
-export default historyBillEWModel;
+export default HistoryBillEWModel;

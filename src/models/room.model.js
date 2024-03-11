@@ -68,6 +68,6 @@ const roomSchema = new mongoose.Schema(
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const roomModel = mongoose.model(DOCUMENT_NAME, roomSchema);
+const RoomModel = mongoose.model(DOCUMENT_NAME, roomSchema);
 
-export default roomModel;
+export default RoomModel;

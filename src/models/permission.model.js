@@ -15,6 +15,6 @@ const permissionSchema = new mongoose.Schema(
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const permissionModel = mongoose.model(DOCUMENT_NAME, permissionSchema);
+const PermissionModel = mongoose.model(DOCUMENT_NAME, permissionSchema);
 
-export default permissionModel;
+export default PermissionModel;

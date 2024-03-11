@@ -35,6 +35,6 @@ const receiptSchema = new mongoose.Schema(
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const receiptModel = mongoose.model(DOCUMENT_NAME, receiptSchema);
+const ReceiptModel = mongoose.model(DOCUMENT_NAME, receiptSchema);
 
-export default receiptModel;
+export default ReceiptModel;

@@ -51,6 +51,6 @@ const notifycationSchema = new mongoose.Schema(
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const notifycationModel = mongoose.model(DOCUMENT_NAME, notifycationSchema);
+const NotifycationModel = mongoose.model(DOCUMENT_NAME, notifycationSchema);
 
-export default notifycationModel;
+export default NotifycationModel;

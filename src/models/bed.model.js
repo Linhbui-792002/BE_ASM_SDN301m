@@ -42,6 +42,6 @@ const bedSchema = new mongoose.Schema(
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const bedModel = mongoose.model(DOCUMENT_NAME, bedSchema);
+const BedModel = mongoose.model(DOCUMENT_NAME, bedSchema);
 
-export default bedModel;
+export default BedModel;

@@ -28,6 +28,6 @@ const domSchema = new mongoose.Schema(
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const domModel = mongoose.model(DOCUMENT_NAME, domSchema);
+const DomModel = mongoose.model(DOCUMENT_NAME, domSchema);
 
-export default domModel;
+export default DomModel;
