@@ -1,14 +1,14 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-mongoose.set('strictQuery', false);
-mongoose
-  .connect(process.env.DB_CONNECTION_STRING, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Connected Database ...");
-  })
-  .catch((err) => {
-    console.log("Connection not working! Error: ", err);
-  });
+const connect = async () => {
+  try {
+    let connection = await mongoose.connect(process.env.DB_CONNECTION_STRING);
+    console.log("connect mongoose successfull");
+    return connection;
+  } catch (error) {
+    // let errorMessage = error.code
+    console.log("Cannot connect to mongoDb " + error);
+  }
+};
+
+export default connect;

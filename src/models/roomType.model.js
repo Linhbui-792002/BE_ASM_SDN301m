@@ -10,7 +10,7 @@ const roomTypeSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    bed_num: {
+    bedNum: {
       type: Number,
       required: true,
     },
@@ -18,14 +18,14 @@ const roomTypeSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    support_ew: {
+    supportEw: {
       type: mongoose.Types.ObjectId,
       ref: 'SupportEWs',
     },
   },
-  { timestamps: true }
+  { timestamps: true ,collection: COLLECTION_NAME}
 );
 
-const RoomModel = mongoose.model('room', roomSchema);
+const RoomTypeModel = mongoose.model(COLLECTION_NAME, roomTypeSchema);
 
-export default RoomModel;
+export default RoomTypeModel;

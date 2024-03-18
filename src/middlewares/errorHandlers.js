@@ -1,18 +1,17 @@
-const APIError = require('../utils/errors');
+import createHttpError from 'http-errors';
+
+const notFoundHandler = (req, res, next) => {
+  next(createHttpError.NotFound());
+};
 
 const errorHandlerMiddleware = (err, req, res, next) => {
-  if (err instanceof APIError) {
-    return res
-      .status(err.statusCode || 400)
-      .json({ success: false, message: err.message });
-  }
-
-  console.log(err);
-
-  return res.status(500).json({
-    success: false,
-    message: 'API Error, Please check !',
+  res.status(err.status || 500);
+  res.send({
+    error: {
+      status: err.status || 500,
+      message: err.message,
+    },
   });
 };
 
-export default errorHandlerMiddleware;
+export { notFoundHandler, errorHandlerMiddleware };

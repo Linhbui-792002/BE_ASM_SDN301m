@@ -7,9 +7,10 @@ const COLLECTION_NAME = "Accounts";
 
 const accountSchema = new mongoose.Schema(
   {
-    userName: {
+    email: {
       type: String,
       required: true,
+      unique:true,
       trim: true,
     },
     password: {

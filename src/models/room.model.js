@@ -58,12 +58,7 @@ const roomSchema = new mongoose.Schema(
           required: true,
         },
       },
-    ],
-    status: {
-      type: Boolean,
-      required: true,
-      default: false,
-    },
+    ]
   },
   { timestamps: true, collection: COLLECTION_NAME }
 );

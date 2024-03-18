@@ -5,12 +5,12 @@ const COLLECTION_NAME = 'Users';
 
 const userSchema = new mongoose.Schema(
   {
-    first_name: {
+    firstName: {
       type: String,
       required: true,
       trim: true,
     },
-    last_name: {
+    lastName: {
       type: String,
       required: true,
       trim: true,
@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema(
       trim: true,
       unique: true,
     },
-    phone_number: {
+    phoneNumber: {
       type: String,
       required: true,
       trim: true,
@@ -55,6 +55,6 @@ const userSchema = new mongoose.Schema(
   { collection: COLLECTION_NAME, timestamps: true }
 );
 
-const UserModel = mongoose.model(DOCUMENT_NAME, userSchema);
+const UserModel = mongoose.model(COLLECTION_NAME, userSchema);
 
 export default UserModel;

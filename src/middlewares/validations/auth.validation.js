@@ -1,5 +1,4 @@
-const joi = require('joi');
-const APIError = require('../../utils/errors');
+import joi from 'joi';
 
 class authValidation {
   constructor() {}

@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import BranchModel from './branch.model.js';
+import UserModel from './user.model.js';
 
 const DOCUMENT_NAME = 'Notifycation';
 const COLLECTION_NAME = 'Notifycations';
@@ -23,29 +25,36 @@ const notifycationSchema = new mongoose.Schema(
     branch: {
       _id: {
         type: mongoose.Types.ObjectId,
-        ref: 'Branches',
+        ref: BranchModel,
+        required: true,
       },
-      branch_name: {
-        type: String,
+      name: {
+        type: String
       },
     },
     createdBy: {
       _id: {
         type: mongoose.Types.ObjectId,
-        ref: 'Users',
+        ref: UserModel
       },
-      name: {
-        type: String,
+      firstName: {
+        type: String
       },
+      lastName:{
+        type:String
+      }
     },
     updatedBy: {
       _id: {
         type: mongoose.Types.ObjectId,
-        ref: 'Users',
+        ref: UserModel
       },
-      name: {
-        type: String,
+      firstName: {
+        type: String
       },
+      lastName:{
+        type:String
+      }
     },
   },
   { timestamps: true, collection: COLLECTION_NAME }
