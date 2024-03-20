@@ -10,6 +10,14 @@ const domrFloorSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    floorNumber:{
+      type: String,
+      required: true,
+    },
+    numberRoom:{
+      type: Number,
+      required: true,
+    },
     dorm: {
         type: mongoose.Types.ObjectId,
         ref:"Dormitories"

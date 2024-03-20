@@ -10,52 +10,45 @@ const roomSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    roomNumber: {
+      type: Number,
+      required: true,
+    },
     gender: {
       type: Number,
       required: true,
     },
-    room_type: {
+    roomType: {
       type: mongoose.Types.ObjectId,
       ref: 'RoomTypes',
+    },
+    dormFloor: {
+      type: mongoose.Types.ObjectId,
+      ref: 'DormFloors',
     },
     dormitory: {
       type: mongoose.Types.ObjectId,
       ref: 'Dormitories',
     },
+    beds: [{
+      type: mongoose.Types.ObjectId,
+      ref: 'Beds',
+    }],
     history_electric_warter: {
       type: mongoose.Types.ObjectId,
-      ref: 'Dormitories',
-    },
-    number_water_used: {
-      type: Number,
-      required: true,
-    },
-    number_electronic_used: {
-      type: Number,
-      required: true,
-    },
-    number_water_real_used: {
-      type: Number,
-      required: true,
-    },
-    number_electronic_real_used: {
-      type: Number,
-      required: true,
+      ref: 'HistoryBillEWDetails',
     },
     furniture: [
       {
         _id: {
           type: mongoose.Types.ObjectId,
-          required: true,
         },
         name: {
           type: String,
-          required: true,
           trim: true,
         },
         quantity: {
           type: Number,
-          required: true,
         },
       },
     ]

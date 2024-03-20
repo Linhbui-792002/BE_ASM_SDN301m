@@ -5,7 +5,7 @@ import morgan from 'morgan';
 import * as dotenv from 'dotenv';
 import cors from 'cors'
 // import ('./src/db/dbConnection');
-import {notifyRouter, userRouter,branchRouter, typeRoomRouter} from './src/routes/index.js'
+import { notifyRouter, userRouter, branchRouter, typeRoomRouter, dormRouter, dormFloorRouter, roomRouter, bookingTimeRouter } from './src/routes/index.js'
 import connect from './src/db/dbConnection.js';
 import {
   errorHandlerMiddleware,
@@ -51,6 +51,10 @@ app.use('/user', userRouter);
 app.use('/branch', branchRouter)
 app.use('/notify', notifyRouter)
 app.use('/type-room', typeRoomRouter)
+app.use('/dorm', dormRouter)
+app.use('/dorm-floor', dormFloorRouter)
+app.use('/room', roomRouter),
+  app.use('/booking-time', bookingTimeRouter)
 
 app.get('/', (req, res) => {
   res.json({

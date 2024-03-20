@@ -18,23 +18,10 @@ const bookingTimeSchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
-    user: {
-      _id: {
-        type: mongoose.Types.ObjectId,
-      },
-      first_name: {
-        type: String,
-        trim: true,
-      },
-      last_name: {
-        type: String,
-        trim: true,
-      },
-    },
   },
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const BookingTimeModel = mongoose.model(DOCUMENT_NAME, bookingTimeSchema);
+const BookingTimeModel = mongoose.model(COLLECTION_NAME, bookingTimeSchema);
 
 export default BookingTimeModel;

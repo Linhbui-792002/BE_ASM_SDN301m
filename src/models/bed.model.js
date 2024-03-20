@@ -15,33 +15,15 @@ const bedSchema = new mongoose.Schema(
         type: mongoose.Types.ObjectId,
         ref: 'Rooms',
       },
-      status: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-    number_water: {
-      type: Number,
-      required: true,
-    },
-    number_electric: {
-      type: Number,
-      required: true,
     },
     status: {
-      type: String,
-      required: true,
-      trim: true,
+      type: Boolean,
+      default: false
     },
   },
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const BedModel = mongoose.model(DOCUMENT_NAME, bedSchema);
+const BedModel = mongoose.model(COLLECTION_NAME, bedSchema);
 
 export default BedModel;

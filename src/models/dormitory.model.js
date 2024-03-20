@@ -12,7 +12,7 @@ const domSchema = new mongoose.Schema(
     },
     branch: {
       _id: {
-        type: mongoose.SchemaTypes.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: 'Branches',
       },
       name: {
@@ -20,10 +20,10 @@ const domSchema = new mongoose.Schema(
       },
     },
     manager: {
-      type: mongoose.SchemaTypes.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: 'Users',
     },
-    number_floor: {
+    numberFloor: {
       type: Number,
       required: true,
     },
@@ -31,6 +31,6 @@ const domSchema = new mongoose.Schema(
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const DomModel = mongoose.model(DOCUMENT_NAME, domSchema);
+const DomModel = mongoose.model(COLLECTION_NAME, domSchema);
 
-module.exports = DomModel;
+export default DomModel;
