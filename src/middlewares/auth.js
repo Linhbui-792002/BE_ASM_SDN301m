@@ -1,24 +1,56 @@
-const jwt = require("jsonwebtoken");
-const userModel = require("../models/user.model");
-const APIError = require("../utils/errors");
+import jwt from "jsonwebtoken";
+import AccountModel from '../models/account.model.js';
+import UserModel from '../models/user.model.js';
+import createHttpError from "http-errors";
 
-const createToken = async (user, res) => {
-  const { _id, firstName } = user;
+const createAccessToken = async (user) => {
+  const { _id, firstName, lastName, role } = user;
 
   const payload = {
     sub: _id,
     firstName: firstName,
+    lastName: lastName,
+    role: role
   };
-  const token = await jwt.sign(payload, process.env.JWT_SECRET_KEY, {
+  const token = await jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
     algorithm: "HS512",
-    expiresIn: process.env.JWT_EXPIRESSECRET_IN,
+    expiresIn: '3h',
   });
 
-  return res.status(201).json({
-    success: true,
-    token,
-    message: "Success",
+  return token
+};
+
+const createRefreshToken = async (user) => {
+  const { _id, firstName, lastName, role } = user;
+
+  const payload = {
+    sub: _id,
+    firstName: firstName,
+    lastName: lastName,
+    role: role
+  };
+  const token = await jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, {
+    algorithm: "HS512",
+    expiresIn: '1d',
   });
+
+  return token
+};
+
+const reAccessToken = async (refreshToken) => {
+  try {
+    const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
+
+    if (!decoded || !decoded.sub) {
+      throw createHttpError.Unauthorized('Invalid refreshToken');
+    }
+
+    const accessToken = jwt.sign({ sub: decoded.sub }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
+
+    return accessToken;
+  } catch (error) {
+    throw error;
+  }
 };
 
 const checkToken = async (req, res, next) => {
@@ -26,70 +58,34 @@ const checkToken = async (req, res, next) => {
   const headerToken = authorization && authorization.startsWith("Bearer ");
 
   if (!headerToken) {
-    throw new APIError("Invalid session. Please login !", 401);
+    return next(createHttpError.Unauthorized("Invalid session. Please login !"))
   }
 
   const token = authorization.split(" ")[1];
 
-  await jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, decoder) => {
+  await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, async (err, decoder) => {
     if (err) {
-      throw new APIError("Invalid token !", 401);
+      const message = err.name === 'JsonWebTokenError' ? 'Unauthorized' : err.message;
+      return next(createHttpError.Unauthorized(message));
     }
 
-    const userInfo = await userModel
+    const userInfo = await UserModel
       .findById(decoder.sub)
-      .select("_id firstName lastName email");
+      .select("_id firstName lastName");
     console.log(userInfo);
 
     if (!userInfo) {
-      throw new APIError("Invalid token !", 401);
+      throw createHttpError.Unauthorized("Invalid token !");
     }
 
-    req.user = userInfo;
+    req.payload = userInfo;
     next();
   });
 };
 
-const createTemporaryToken = async (userId, email) => {
-  const payload = {
-    sub: userId,
-    email,
-  };
-  const token = await jwt.sign(payload, process.env.JWT_TEMPORARY_KEY, {
-    algorithm: "HS512",
-    expiresIn: process.env.JWT_TEMPORARYEXPIRES_IN,
-  });
-
-  return "Bearer " + token;
-};
-
-const decodedTemporaryToken = async (temporaryToken) => {
-  const token = temporaryToken.split(" ")[1];
-  let userInfo;
-
-
-  await jwt.verify(
-    token,
-    process.env.JWT_TEMPORARY_KEY,
-    async (err, decoded) => {
-      if (err) throw new APIError("Invalid token !", 401);
-      console.log("decoded "+ decoded);
-
-      userInfo = await userModel
-        .findById(decoded.sub)
-        .select("_id firstName lastName email");
-      if (!userInfo) {
-        throw new APIError("Invalid token", 401);
-      }
-    }
-  );
-
-  return userInfo;
-};
-
-module.exports = {
-  createToken,
+export {
+  createAccessToken,
   checkToken,
-  createTemporaryToken,
-  decodedTemporaryToken,
+  createRefreshToken,
+  reAccessToken
 };

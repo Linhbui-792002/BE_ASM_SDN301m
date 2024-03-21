@@ -10,7 +10,7 @@ const accountSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
-      unique:true,
+      unique: true,
       trim: true,
     },
     password: {
@@ -32,26 +32,20 @@ const accountSchema = new mongoose.Schema(
       ref: "Users",
     },
     role: {
-      _id: {
-        type: ObjectId,
-        ref: "Roles",
-      },
-      name: {
-        type: String,
-      },
+      type: String,
     },
-    is_active: {
+    isActive: {
       type: Boolean,
       enum: [true, false],
-      default: false,
+      default: true,
     },
-    created_by: {
+    createdBy: {
       _id: {
         type: ObjectId,
         ref: "Users",
       },
     },
-    updated_by: {
+    updatedBy: {
       _id: {
         type: ObjectId,
         ref: "Users",
@@ -64,6 +58,6 @@ const accountSchema = new mongoose.Schema(
   }
 );
 
-const AccountModel = mongoose.model(DOCUMENT_NAME, accountSchema);
+const AccountModel = mongoose.model(COLLECTION_NAME, accountSchema);
 
-export default  AccountModel;
+export default AccountModel;

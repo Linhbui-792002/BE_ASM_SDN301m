@@ -13,16 +13,19 @@ const bookingSchema = new mongoose.Schema(
       type: mongoose.Types.ObjectId,
       ref: 'Beds',
     },
+    bookingTime: {
+      type: mongoose.Types.ObjectId,
+      ref: 'BookingTimes',
+    },
     status: {
       type: String,
-      required: true,
       enum: ['Pending', 'Success', 'Reject'],
-      defalt: 'Pending',
+      default: 'Pending',
     },
   },
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const BookingModel = mongoose.model(DOCUMENT_NAME, bookingSchema);
+const BookingModel = mongoose.model(COLLECTION_NAME, bookingSchema);
 
 export default BookingModel;

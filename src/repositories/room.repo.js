@@ -36,7 +36,7 @@ const addRoom = async ({ name, roomNumber, gender, roomType, dormitory, dormFloo
 
         const beds = [];
         for (let i = 1; i <= existRoomType.bedNum; i++) {
-            const bed = await BedModel.create({ code: String(i + 1), room: room._id });
+            const bed = await BedModel.create({ code: String(i), room: room._id });
             if (!bed) {
                 throw createHttpError.BadRequest(`Beds create error.`)
             }
@@ -51,6 +51,21 @@ const addRoom = async ({ name, roomNumber, gender, roomType, dormitory, dormFloo
         throw new Error(error.toString());
     }
 };
+
+const getOneRoom = async ({ id }) => {
+    try {
+        const result = await RoomModel.findOne({ _id: id })
+            .populate('beds')
+            .populate('roomType')
+            .populate('dormFloor')
+            .populate('dormitory')
+
+        return result
+    } catch (error) {
+        throw new Error(error.toString());
+    }
+};
+
 
 
 // const editDorm = async ({ _id,name, numberFloor }) => {
@@ -89,5 +104,6 @@ const addRoom = async ({ name, roomNumber, gender, roomType, dormitory, dormFloo
 
 export default {
     addRoom,
-    getRoomByDormFloorId
+    getRoomByDormFloorId,
+    getOneRoom
 };

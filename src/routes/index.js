@@ -6,6 +6,8 @@ import dormRouter from './dorm.router.js';
 import dormFloorRouter from './dormFloor.router.js';
 import roomRouter from './room.router.js';
 import bookingTimeRouter from './bookingTime.router.js';
+import bookingRouter from './booking.router.js';
+import historyEwRouter from './historyEW.router.js';
 export {
     userRouter,
     notifyRouter,
@@ -14,5 +16,7 @@ export {
     dormRouter,
     dormFloorRouter,
     roomRouter,
-    bookingTimeRouter
+    bookingTimeRouter,
+    historyEwRouter,
+    bookingRouter
 };

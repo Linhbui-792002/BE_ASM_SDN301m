@@ -6,6 +6,8 @@ import DormRepo from './dorm.repo.js';
 import DormFloorRepo from './dormFloor.repo.js';
 import RoomRepo from './room.repo.js';
 import BookingTimeRepo from './bookingTime.repo.js';
+import HistoryEWRepo from './historyEW.repo.js';
+import BookingRepo from './booking.repo.js';
 export {
     AuthRepo,
     NotifyRepo,
@@ -14,5 +16,7 @@ export {
     DormRepo,
     DormFloorRepo,
     RoomRepo,
-    BookingTimeRepo
+    BookingTimeRepo,
+    HistoryEWRepo,
+    BookingRepo
 };

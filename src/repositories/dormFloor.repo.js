@@ -1,4 +1,4 @@
-import DormFloorModel from '../models/ dormFloor.model.js';
+import DormFloorModel from '../models/dormFloor.model.js';
 import DomModel from '../models/dormitory.model.js';
 import { getInfoData } from '../utils/index.js';
 import createHttpError from 'http-errors';

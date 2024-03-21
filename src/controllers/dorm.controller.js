@@ -85,9 +85,21 @@ const getAllDorm = async (req, res, next) => {
   }
 };
 
+
+const getAllDormBooking = async (req, res, next) => {
+  const { roomTypeID } = req.query
+
+  const result = await DormRepo.getDormBooking({ roomTypeID });
+  res.status(200).json({
+    statusCode: 200,
+    message: 'get all dorm booking success',
+    data: result,
+  });
+}
 export default {
   createDorm,
   getAllDorm,
   updateDorm,
-  getOneDorm
+  getOneDorm,
+  getAllDormBooking
 };

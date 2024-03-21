@@ -5,7 +5,18 @@ import morgan from 'morgan';
 import * as dotenv from 'dotenv';
 import cors from 'cors'
 // import ('./src/db/dbConnection');
-import { notifyRouter, userRouter, branchRouter, typeRoomRouter, dormRouter, dormFloorRouter, roomRouter, bookingTimeRouter } from './src/routes/index.js'
+import {
+  notifyRouter,
+  userRouter,
+  branchRouter,
+  typeRoomRouter,
+  dormRouter,
+  dormFloorRouter,
+  roomRouter,
+  bookingTimeRouter,
+  historyEwRouter,
+  bookingRouter
+} from './src/routes/index.js'
 import connect from './src/db/dbConnection.js';
 import {
   errorHandlerMiddleware,
@@ -21,6 +32,7 @@ const app = express();
 
 // const apiLimitter = require('./src/middlewares/rateLimit');
 import moment from 'moment-timezone';
+import { checkToken } from './src/middlewares/auth.js';
 moment.tz.setDefault('Europa/Istanbul');
 
 //Init Middlewares
@@ -47,14 +59,15 @@ app.use(
 
 //Init Routers
 app.use('/user', userRouter);
-
-app.use('/branch', branchRouter)
-app.use('/notify', notifyRouter)
-app.use('/type-room', typeRoomRouter)
-app.use('/dorm', dormRouter)
-app.use('/dorm-floor', dormFloorRouter)
-app.use('/room', roomRouter),
-  app.use('/booking-time', bookingTimeRouter)
+app.use('/branch', checkToken, branchRouter)
+app.use('/notify', checkToken, notifyRouter)
+app.use('/type-room', checkToken, typeRoomRouter)
+app.use('/dorm', checkToken, dormRouter)
+app.use('/dorm-floor', checkToken, dormFloorRouter)
+app.use('/room', checkToken, roomRouter),
+  app.use('/booking-time', checkToken, bookingTimeRouter)
+app.use('/booking', checkToken, bookingRouter)
+app.use('/history-ew', checkToken, historyEwRouter)
 
 app.get('/', (req, res) => {
   res.json({

@@ -18,6 +18,10 @@ const bookingTimeSchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
+    status: {
+      type: Boolean,
+      default: true
+    }
   },
   { timestamps: true, collection: COLLECTION_NAME }
 );

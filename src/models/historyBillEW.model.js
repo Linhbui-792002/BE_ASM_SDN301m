@@ -14,46 +14,26 @@ const historyBillEWSchema = new mongoose.Schema(
         type: String,
       },
     },
-    new_electric: {
+    numberWaterUsed: {
       type: Number,
       required: true,
     },
-    old_electric: {
+    numberElectronicUsed: {
       type: Number,
       required: true,
     },
-    new_water: {
+    electricPrice: {
       type: Number,
       required: true,
     },
-    old_water: {
+    waterPrice: {
       type: Number,
       required: true,
-    },
-    number_water_used: {
-      type: Number,
-      required: true,
-    },
-    number_electronic_used: {
-      type: Number,
-      required: true,
-    },
-    electric_price: {
-      type: Number,
-      required: true,
-    },
-    water_price: {
-      type: Number,
-      required: true,
-    },
-    createdBy: {
-      type: mongoose.Types.ObjectId,
-      ref: 'Users',
-    },
+    }
   },
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const HistoryBillEWModel = mongoose.model(DOCUMENT_NAME, historyBillEWSchema);
+const HistoryBillEWModel = mongoose.model(COLLECTION_NAME, historyBillEWSchema);
 
 export default HistoryBillEWModel;

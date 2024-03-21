@@ -54,21 +54,21 @@ const createRoom = async (req, res, next) => {
 // };
 
 
-// const getOneDorm = async (req, res, next) => {
-//   try {
+const getOneRoomById = async (req, res, next) => {
+  try {
 
-//     const { id } = req.params
+    const { id } = req.params
 
-//     const result = await DormRepo.getDormById({ id });
-//     res.status(200).json({
-//       statusCode: 200,
-//       message: 'get one dorm success',
-//       data: result,
-//     });
-//   } catch (error) {
-//     next(error)
-//   }
-// };
+    const result = await RoomRepo.getOneRoom({ id });
+    res.status(200).json({
+      statusCode: 200,
+      message: 'get one room success',
+      data: result,
+    });
+  } catch (error) {
+    next(error)
+  }
+};
 
 
 const getAllRoomByDormFloorId = async (req, res, next) => {
@@ -88,5 +88,6 @@ const getAllRoomByDormFloorId = async (req, res, next) => {
 
 export default {
     createRoom,
-    getAllRoomByDormFloorId
+    getAllRoomByDormFloorId,
+    getOneRoomById
 };

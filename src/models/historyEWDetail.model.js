@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
-const DOCUMENT_NAME = 'HistoryBillEWDetail';
-const COLLECTION_NAME = 'HistoryBillEWDetails';
+const DOCUMENT_NAME = 'HistoryEWDetail';
+const COLLECTION_NAME = 'HistoryEWDetails';
 
 const historyEWDetailSchema = new mongoose.Schema(
   {
@@ -18,19 +18,19 @@ const historyEWDetailSchema = new mongoose.Schema(
       type: mongoose.Types.ObjectId,
       ref: 'BookingTimes',
     },
-    new_electric: {
+    newElectric: {
       type: Number,
       required: true,
     },
-    old_electric: {
+    oldElectric: {
       type: Number,
       required: true,
     },
-    new_water: {
+    newWater: {
       type: Number,
       required: true,
     },
-    old_water: {
+    oldWater: {
       type: Number,
       required: true,
     },
@@ -38,6 +38,6 @@ const historyEWDetailSchema = new mongoose.Schema(
   { timestamps: true, collection: COLLECTION_NAME }
 );
 
-const HistoryBillEWModel = mongoose.model(COLLECTION_NAME, historyEWDetailSchema);
+const HistoryEWDetailModel = mongoose.model(COLLECTION_NAME, historyEWDetailSchema);
 
-module.exports = HistoryBillEWModel;
+export default HistoryEWDetailModel;

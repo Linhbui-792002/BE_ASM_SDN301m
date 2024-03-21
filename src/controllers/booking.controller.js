@@ -1,16 +1,22 @@
-import { BookingTimeRepo } from "../repositories/index.js";
+import { BookingRepo } from "../repositories/index.js";
 import createHttpError from "http-errors";
 
 
-const createBookingTime = async (req, res, next) => {
+const createBooking = async (req, res, next) => {
     try {
-
-        const { name, to, from, status } = req.body
-
-        const result = await BookingTimeRepo.addBookingTime({ name, to, from, status });
+        const {
+            bed,
+            bookingTime } = req.body
+        const { _id } = req.payload
+        const userId = _id
+        const result = await BookingRepo.addBooking({
+            userId,
+            bed,
+            bookingTime
+        });
         res.status(201).json({
             statusCode: 201,
-            message: 'create booking time success',
+            message: 'create booking success',
             data: result,
         });
     } catch (error) {
@@ -19,15 +25,15 @@ const createBookingTime = async (req, res, next) => {
 };
 
 
-const updateBookingTime = async (req, res, next) => {
+const updateBooking = async (req, res, next) => {
     try {
 
-        const { _id, name, to, from, status } = req.body
+        const { _id, status } = req.body
 
-        const result = await BookingTimeRepo.editBookingTime({ _id, name, to, from, status });
+        const result = await BookingRepo.editBooking({ _id, status });
         res.status(200).json({
             statusCode: 200,
-            message: 'edit booking time success',
+            message: 'edit booking success',
             data: result,
         });
     } catch (error) {
@@ -59,7 +65,7 @@ const getOneBookingById = async (req, res, next) => {
 
         const { id } = req.params
 
-        const result = await BookingTimeRepo.getBookingTimeById({ id });
+        const result = await BookingRepo.getBookingById({ id });
         res.status(200).json({
             statusCode: 200,
             message: 'get one booking time success',
@@ -71,10 +77,11 @@ const getOneBookingById = async (req, res, next) => {
 };
 
 
-const getAllBookingTime = async (req, res, next) => {
+const getAllBooking = async (req, res, next) => {
     try {
-        const { page, limit } = req.query;
-        const result = await BookingTimeRepo.getBookingTime({ page, limit });
+
+        const { page, limit, userId, status } = req.query;
+        const result = await BookingRepo.getBooking({ page, limit, userId, status });
         res.status(200).json({
             statusCode: 200,
             message: 'get all booking time success',
@@ -86,8 +93,8 @@ const getAllBookingTime = async (req, res, next) => {
 };
 
 export default {
-    createBookingTime,
-    getAllBookingTime,
+    createBooking,
+    getAllBooking,
     getOneBookingById,
-    updateBookingTime
+    updateBooking
 };

@@ -15,17 +15,8 @@ const userSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    email: {
-      type: String,
-      required: true,
-      trim: true,
-      unique: true,
-    },
     phoneNumber: {
       type: String,
-      required: true,
-      trim: true,
-      unique: true,
     },
     image: {
       type: String,
